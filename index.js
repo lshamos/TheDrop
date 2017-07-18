@@ -9,13 +9,13 @@ const
   passport = require('passport'),
   session= require ('express-session'),
   flash = require('flash'),
-  port = 3000,
+  port = process.env.port || 3000,
   User = require('./models/User.js'),
   Comment = require('./models/Comment.js'),
   SurfLocation = require('./models/SurfLocation.js'),
   weatherController = require('./controllers/weather.js')
 
-mongoose.connect('mongodb://localhost/the-drop', (err) => {
+mongoose.connect(process.MONGODB_URI) || ('mongodb://localhost/the-drop', (err) => {
   console.log(err || "Connected to MongoDB.")
 })
 
