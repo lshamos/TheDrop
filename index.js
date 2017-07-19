@@ -20,8 +20,6 @@ const
   passportConfig = require('./config/passport.js'),
   userRoutes = require('./routes/users.js')
 
-
-//envir. port
 const
   mongoConnectionString = process.env.MONGODB_URL || 'mongodb://localhost/passport-authentication'
 
@@ -64,11 +62,9 @@ app.use((req, res, next) => {
 
 	next()
 })
-// require('./config/passport')(passport);
 
 //ejs config
 app.set('view engine', "ejs")
-// app.use(ejsLayouts)
 
 
 

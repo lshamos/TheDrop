@@ -44,7 +44,6 @@ const
     			return done(null, newUser, null)
     		})
     	})
-    // })
 
   }))
 

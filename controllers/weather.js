@@ -9,7 +9,7 @@ module.exports = {
   search: (req, res) => {
     var searchTerm = req.params.searchTerm
     var apiUrl = 'http://api.wunderground.com/api/'
-    // YOUR_API_KEY/conditions/q/CA/THE_DESIRED_CITY.json
+    
     var weatherApiKey = process.env.WEATHER_API_KEY
     var requestUrl = `${apiUrl}${weatherApiKey}/conditions/q/CA/${searchTerm}.json`
 

@@ -42,7 +42,7 @@ searchButton.on('click', function() {
     var icon = d.current_observation.icon_url
 
     $('#results').append(`${city}: ${temp}<br>`)
-    // $('#results').append(`Lat: ${cityLat} Long: ${cityLong}`)
+    
     map.addMarker({
       lat: `${cityLat}`,
       lng: `${cityLong}`,
@@ -74,9 +74,7 @@ populateSpots()
 
 
 function boxClickHandler() {
-  // console.log(this.lat)
-  // var elmnt = this
-  // console.log(elmnt
+
   var lat = this.getAttribute('lat')
   var long = this.getAttribute('long')
   var city = this.getAttribute('city')
@@ -86,19 +84,7 @@ function boxClickHandler() {
 
 
   console.log(`${name}: ${lat}, ${long}`)
-  // map.setCenter(marker.getPosition());
-
-  // marker: function() {
-  //   map.addMarker({
-  //     lat: `${lat}`,
-  //     lng: `${long}`,
-  //     title: `${name}`,
-  //     infoWindow: {
-  //       content: `<h5>${name}</h5><p>temp</p>`
-  //     }
-  //   });
-  //   map.setCenter(marker.getPosition());
-  // }
+  /
 
   var requestSettings = {
     method: 'get',
@@ -108,9 +94,9 @@ function boxClickHandler() {
   function cb(d) {
     console.log(d)
     temp = d.current_observation.feelslike_string
-    // console.log(temp)
+
     icon = d.current_observation.icon_url
-    // map.removeMarkers()
+
   }
 
   setTimeout(function() {
