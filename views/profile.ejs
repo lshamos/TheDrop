@@ -1,3 +1,4 @@
+
 <div class="page-header">
     <h1><%= user.local.name || user.facebook.name %></h1>
     <a href="/logout" class="btn btn-default btn-sm">Logout</a>
@@ -6,38 +7,66 @@
     <div class="col-sm-6 col-sm-offset-3">
         <div class="well">
 
-            <% if(user.facebook.id) { %>
 
-                <h3>Facebook</h3>
+            <% if(user.facebook.id) { %>
+              <h3>Facebook</h3>
                 <p>
                     <!-- <strong>id</strong>: <%= user.facebook.id %><br>
                     <strong>token</strong>: <%= user.facebook.token %><br> -->
                     <strong>email</strong>: <%= user.facebook.email %><br>
                     <strong>name</strong>: <%= user.facebook.name %>
                 </p>
+                  <% } else { %>
 
-            <% } else { %>
 
             <h3>Locally Stored User</h3>
                 <p>
                     <strong>Name</strong>: <%= user.local.name %><br>
-
-                </p>
-
-            <% } %>
-            <small> <%= user.local.location%></small></h1>
-
-            <h3>Bio</h3>
-            <%= user.local.bio %>
-<a href="/editBio">edit</a>
-            <hr>
-            <h3>Favorite</h3>
+                    </p>
 
 
-            <hr>
-            <h3> <%= user.local.name %> Comments </h3>
-            <hr>
-            <a href="/">Surf Report</a>
-        </div>
-    </div>
-</div>
+<h3>Bio</h3>
+<div id="bio">
+	<input type="textField" id="bio-input" placeholder="Bio">
+	<button id="addBio">Submit</button>
+	</div>
+	<button id="editBio">Edit Bio</button>
+
+<hr>
+<h3>Favorites</h3>
+
+              
+
+          
+
+<hr>
+<a href="/">Surf Report</a>
+
+<% if(loggedIn) { %>
+	<a href="/logout">Logout</a>
+<% } %>
+<script type="text/javascript">
+//variables
+
+var userBio = $('#bio-input')
+var submitBio = $('#addBio')
+var editBio = $('#editBio')
+
+// submit button
+submitBio.on('click', function(){
+	var resquestSettings = {
+		method: 'post',
+		url: '/profile',
+		data: JSON.stringify({body: userBio.val(), contentType: 'application/json'}
+		function callback(d){
+			console.log(d)
+			populateBioUL()
+		}
+	}
+})
+
+//edit button
+</script>
+
+
+           
